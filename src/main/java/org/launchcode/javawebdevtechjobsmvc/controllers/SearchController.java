@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.launchcode.javawebdevtechjobsmvc.controllers.ListController.columnChoices;
@@ -28,8 +27,6 @@ public class SearchController {
     @PostMapping("results")
     public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
         List<Job> jobs;
-        System.out.println("searchType = " + searchType);
-        System.out.println("SearchTerm = " + searchTerm);
         if ((searchType == "all") || (searchType == null)) {
             jobs = JobData.findAll();
         } else {
